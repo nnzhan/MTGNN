@@ -11,7 +11,7 @@ class nconv(nn.Module):
         super(nconv,self).__init__()
 
     def forward(self,x, A):
-        x = torch.einsum('ncvl,vw->ncwl',(x,A))
+        x = torch.einsum('ncwl,vw->ncvl',(x,A))
         return x.contiguous()
 
 class dy_nconv(nn.Module):
